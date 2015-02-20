@@ -68,7 +68,7 @@ def test_json_database_save(state_to_json, io):
 
     # Then the file descriptor should have been opened in write mode,
     # and pointing to the right file
-    io.open.assert_called_once_with('my-database.json', 'w')
+    io.open.assert_called_once_with('my-database.json', 'wb')
 
     # And the returned file descriptor should have been used
     # to write the return value from state_to_json
@@ -78,8 +78,9 @@ def test_json_database_save(state_to_json, io):
     mocked_fd.close.assert_called_once_with()
 ```
 
-
 pretty great, huh?
+
+The mock documentation can be found [here](http://www.voidspace.org.uk/python/mock/)
 
 #### sure
 
@@ -104,6 +105,8 @@ def test_json_database_state_to_json():
     # Then it should return a valid JSON
     result.should.equal('{"name": "Foo Bar"}')
 ```
+
+The sure documentation is available [here](https://github.com/gabrielfalcao/sure)
 
 
 #### nose + coverage + rednose
@@ -138,6 +141,26 @@ JSONDatabase.state_to_json() should return a valid json string ... passed
 ```
 
 ps.: nose actually matches files that contain `test` in the name and can also find `TestCase` classes, but I recommend using function-based tests, for clarity, expressiveness and to enforce simplicity. We developers tend to add too much logic to setup and teardown functions when writing test-based class.
+
+#### steadymark - integrate your documentation with the test suite
+
+Steadymark parses a markdown file, looks for python code blocks and executes them as tests.
+In fact, this very README that you're reading right now is an acceptance test for the "agile" github project.
+
+Every python example on this file [is going to be](https://github.com/gabrielfalcao/agile/blob/master/.travis.yml) executed by the [continuous integration](https://travis-ci.org/gabrielfalcao/agile) server.
+
+In fact, the python code blocks above were evaluated, but the tests inside of the `test_` functions won't get executed because steadymark doesn't call test functions automatically, it was rather designed to just evaluate python code, so your docs don't need to define test functions.
+
+But since this README file is an edge case for using steadymark, I'm
+going to go ahead and explicitly call the test functions here:
+
+```python
+test_json_database_state_to_json()
+test_json_database_save()
+```
+
+
+The steadymark documentation is available [here](https://github.com/gabrielfalcao/steadymark)
 
 
 ## Gists:
