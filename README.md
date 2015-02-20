@@ -1,5 +1,7 @@
 # Agile
 
+[![Build Status](https://travis-ci.org/gabrielfalcao/agile.svg)](https://travis-ci.org/gabrielfalcao/agile)
+
 Meta-package for python with tools for an agile development workflow.
 
 Recommended by [Gabriel Falcão](http://j.mp/gabrielfalcao), creator of [HTTPretty](http://j.mp/Httpretty), [steadymark](http://j.mp/steadymark), [sure](http://j.mp/py-sure) and [lettuce](http://github.com/py-lettuce).
