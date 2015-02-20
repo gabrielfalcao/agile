@@ -1,16 +1,30 @@
-all: install_deps test
+.PHONY: all
+all: dependencies unit functional acceptance
 
-export PYTHONPATH := ${PWD}:${PYTHONPATH}
+TESTCMD = nosetests -sxv --with-coverage --cover-package=my_cool_library --rednose
+PYTHONPATH = ${PWD}:$PYTHONPATH
 
 
-install_deps:
+export PYTHONPATH
+
+
+
+dependencies:
 	@python setup.py develop
 
-test:
-	@nosetests -s --verbosity=2 tests --rednose
+unit:
+	@$(TESTCMD) tests/unit
+
+functional:
+	@$(TESTCMD) tests/functional
+
+acceptance:
+	@steadymark README.md
 
 clean:
 	git clean -Xdf
 
 release:
 	@python setup.py sdist register upload
+
+unit:
