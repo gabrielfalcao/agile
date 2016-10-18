@@ -19,7 +19,7 @@ install_requires = [
 if __name__ == '__main__':
     setup(
         name='agile',
-        version='1.3.1',
+        version='1.4.0',
         description=(
             'A meta-package containing a full '
             'toolset for agile development with TDD'
