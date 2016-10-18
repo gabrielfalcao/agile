@@ -5,13 +5,14 @@ from setuptools import setup
 
 
 install_requires = [
-    'mock==1.0.1',
-    'coverage',
-    'nose==1.3.4',
-    'rednose==0.4.1',
-    'sure==1.2.12',
-    'steadymark',
-    'httpretty'
+    "couleur==0.6.2",
+    "coverage==4.2",
+    "httpretty==0.8.14",
+    "mock==2.0.0",
+    "nose==1.3.7",
+    "rednose==1.2.1",
+    "steadymark==0.7.3",
+    "sure==1.4.0",
 ]
 
 
@@ -20,7 +21,8 @@ if __name__ == '__main__':
         name='agile',
         version='1.3.1',
         description=(
-            'A meta-package containing a full toolset for agile development with TDD'
+            'A meta-package containing a full '
+            'toolset for agile development with TDD'
         ),
         author='Gabriel Falcao',
         author_email='gabriel@nacaolivre.org',
