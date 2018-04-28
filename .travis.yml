@@ -1,13 +1,12 @@
 language: python
+sudo: false
 python:
   - "2.7"
+  - "3.6"
 
-# command to install dependencies
 install:
-  - make dependencies
+  - pip install pipenv
 
-# command to run tests
-script: |
-  make unit
-  make functional
-  make acceptance
+script:
+  - pipenv install --dev --skip-lock
+  - pipenv run make tests
