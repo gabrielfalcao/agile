@@ -1,7 +1,7 @@
 export TESTCMD		:= nosetests -sxv --with-coverage --cover-package=my_cool_library --rednose
 export PYTHONPATH	:= ${PWD}:$PYTHONPATH
 
-tests: dependencies unit functional acceptance
+tests: dependencies unit functional
 
 dependencies:
 	@python setup.py develop
