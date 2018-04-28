@@ -15,6 +15,9 @@ clean:
 release: tests
 	@./.release
 	@rm -rf dist
+	@make rogue-release
+
+rogue-release: dependencies
 	@pipenv run python setup.py sdist
 	@pipenv run twine upload dist/*.tar.gz
 
