@@ -4,3 +4,4 @@ mock
 nose
 rednose
 sure
+flake8
