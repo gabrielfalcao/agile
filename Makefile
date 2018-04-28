@@ -1,30 +1,22 @@
-.PHONY: all
-all: dependencies unit functional acceptance
+export TESTCMD		:= nosetests -sxv --with-coverage --cover-package=my_cool_library --rednose
+export PYTHONPATH	:= ${PWD}:$PYTHONPATH
 
-TESTCMD = nosetests -sxv --with-coverage --cover-package=my_cool_library --rednose
-PYTHONPATH = ${PWD}:$PYTHONPATH
-
-
-export PYTHONPATH
-
-
+tests: dependencies unit functional acceptance
 
 dependencies:
 	@python setup.py develop
 
-unit:
-	@$(TESTCMD) tests/unit
-
-functional:
-	@$(TESTCMD) tests/functional
-
-acceptance:
-	@steadymark README.md
+unit functional:
+	@$(TESTCMD) tests/$@
 
 clean:
 	git clean -Xdf
 
-release:
-	@python setup.py sdist register upload
+release: tests
+	@./.release
+	@rm -rf dist
+	@pipenv run python setup.py sdist
+	@pipenv run twine upload dist/*.tar.gz
 
-unit:
+
+.PHONY: tests
