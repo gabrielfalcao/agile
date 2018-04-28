@@ -1,19 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
+from setuptools import setup, find_packages
 
-from setuptools import setup
+
+local_file = lambda *f: \
+    open(os.path.join(os.path.dirname(__file__), *f)).read()
 
 
-install_requires = [
-    "couleur==0.6.2",
-    "coverage==4.2",
-    "httpretty==0.8.14",
-    "mock==2.0.0",
-    "nose==1.3.7",
-    "rednose==1.2.1",
-    "steadymark==0.7.3",
-    "sure==1.4.0",
-]
+install_requires = local_file('dependencies.txt').splitlines()
 
 
 if __name__ == '__main__':
@@ -26,8 +21,8 @@ if __name__ == '__main__':
         ),
         author='Gabriel Falcao',
         author_email='gabriel@nacaolivre.org',
-        include_package_data=True,
         url='http://github.com/gabrielfalcao/agile',
         packages=[],
+        include_package_data=True,
         install_requires=install_requires,
     )

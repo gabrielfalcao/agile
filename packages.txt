@@ -1,0 +1,6 @@
+coverage
+httpretty
+mock
+nose
+rednose
+sure
