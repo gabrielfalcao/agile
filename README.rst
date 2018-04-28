@@ -1,10 +1,6 @@
 Agile
 =====
 
-
-.. image:: https://readthedocs.org/projects/agile/badge/?version=latest
-   :target: http://agile.readthedocs.io/en/latest/?badge=latest
-
 .. image:: https://travis-ci.org/gabrielfalcao/agile.svg?branch=master
    :target: https://travis-ci.org/gabrielfalcao/agile
 
