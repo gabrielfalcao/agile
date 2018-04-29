@@ -25,6 +25,7 @@ if __name__ == '__main__':
             'A meta-package containing a full '
             'toolset for agile development with TDD'
         ),
+        long_description=local_file('README.rst'),
         author='Gabriel Falcao',
         author_email='gabriel@nacaolivre.org',
         url='http://github.com/gabrielfalcao/agile',
